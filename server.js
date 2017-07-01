@@ -14,13 +14,10 @@ const port = process.env.PORT || 3000
 const env = process.env.NODE_ENV || 'production'
 
 app.get('*', (req, res) => {
-    const html = ReactServerDOM.renderToString(<App />)
-
-    res.send(html)
-    res.end()
+    res.sendFile(path.join(__dirname + "/static/index.html"))
 })
 
-app.listen(port, err => {
+app.listen(port, function(err) {
     if(err) return console.error(err)
 
     console.info(`Server running on http://localhost:${port} [${env}]`)
