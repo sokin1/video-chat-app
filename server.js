@@ -5,7 +5,7 @@ import ReactServerDOM from 'react-dom/server'
 
 const app = new Express()
 
-import App from './components/App'
+import App from './src/components/App'
 
 app.set('views', path.join(__dirname, 'static'))
 app.use(Express.static(path.join(__dirname, 'static')))

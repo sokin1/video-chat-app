@@ -1,12 +1,12 @@
 import React from 'react'
 
-import styles from './style.css'
+import styles from './styles.css'
 
 export default class Footer extends React.Component {
     render() {
         return(
-            <div className={styles.footer}>
-                Footer
+            <div>
+                Footers
             </div>
         )
     }
