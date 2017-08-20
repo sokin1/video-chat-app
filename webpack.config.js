@@ -3,7 +3,7 @@ const webpack = require('webpack')
 module.exports = {
     entry: __dirname + '/src/' + 'client.js',
     output: {
-        filename: './static/client.min.js'
+        filename: './static/client.bundle.js'
     },
     module: {
         rules: [
@@ -18,19 +18,19 @@ module.exports = {
                         }
                     }
                 ]
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    {loader: 'style-loader'},
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true
-                        }
-                    }
-                ]
             }
+            // {
+            //     test: /\.css$/,
+            //     use: [
+            //         {loader: 'style-loader'},
+            //         {
+            //             loader: 'css-loader',
+            //             options: {
+            //                 modules: true
+            //             }
+            //         }
+            //     ]
+            // }
         ]
     }
 }

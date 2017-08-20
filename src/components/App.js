@@ -1,31 +1,26 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import Header from './GlobalComponents/Header'
+import Header from './GlobalComponents/Headers/Header'
 import Footer from './GlobalComponents/Footer'
-import Main from './MainPageComponents/Main'
-
-import styles from './styles.css'
-
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom'
+import Main from './MainComponents/Main'
 
 export default class App extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = this.props.status
+        this.state = {
+            server_info: this.props.initialStates.server_info,
+            user: this.props.initialStates.cur_user
+        }
     }
 
     render() {
         return(
             <div>
-                <Header status={this.state}/>
-                <Main status={this.state}/>
-                <Footer />
+                <Header user={this.state.user}/>
+                <Main user={this.state.user}/>
+                <Footer/>
             </div>
         )
     }
