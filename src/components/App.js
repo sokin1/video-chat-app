@@ -10,8 +10,7 @@ export default class App extends React.Component {
         super(props)
 
         this.state = {
-            server_info: this.props.initialStates.server_info,
-            user: this.props.initialStates.cur_user
+            user: this.props.user.cur_user
         }
     }
 

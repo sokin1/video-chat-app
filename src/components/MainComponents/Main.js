@@ -10,25 +10,21 @@ import PageNotFound from './PageNotFound'
 export default class Main extends React.Component {
     constructor(props) {
         super(props)
-
-        this.state = {
-            user: this.props.user
-        }
     }
 
     render() {
-        if(this.state.user.where === null) {
-            <SignUpMain/>
-        } else if(this.state.user.where === 'GROUP_SETTINGS') {
-            <GroupInfoMain user={this.state.user}/>
-        } else if(this.state.user.where === 'SETTINGS') {
-            <SettingMain user={this.state.user}/>
-        } else if(this.state.user.where === 'USER_SETTINGS') {
-            <UserInfoMain user={this.state.user}/>
-        } else if(this.state.user.where === 'MAIN') {
-            <LoginMain user={this.state.user}/>
+        if(this.props.user.where === null) {
+            return <SignUpMain/>
+        } else if(this.props.user.where === 'GROUP_SETTINGS') {
+            return <GroupInfoMain user={this.props.user}/>
+        } else if(this.props.user.where === 'SETTINGS') {
+            return <SettingMain user={this.props.user}/>
+        } else if(this.props.user.where === 'USER_SETTINGS') {
+            return <UserInfoMain user={this.props.user}/>
+        } else if(this.props.user.where === 'MAIN') {
+            return <LoginMain user={this.props.user}/>
         } else {
-            <PageNotFound />
+            return <PageNotFound />
         }
     }
 }
