@@ -10,11 +10,12 @@ export default class App extends React.Component {
         super(props)
 
         this.state = {
-            user: this.props.user.cur_user
+            user: this.props.user
         }
     }
 
     render() {
+        console.log(this.state.user)
         return(
             <div>
                 <Header user={this.state.user}/>

@@ -13,7 +13,7 @@ export default class Main extends React.Component {
     }
 
     render() {
-        if(this.props.user.where === null) {
+        if(this.props.user == null) {
             return <SignUpMain/>
         } else if(this.props.user.where === 'GROUP_SETTINGS') {
             return <GroupInfoMain user={this.props.user}/>

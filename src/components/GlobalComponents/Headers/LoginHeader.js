@@ -5,13 +5,9 @@ export default class LoginHeader extends React.Component {
         super(props)
     }
 
-    submit_log_in(e) {
-        this.props.handle_login()
-    }
-
     render() {
         return (
-            <form id="loginForm" onSubmit={this.submit_log_in.bind(this)}>
+            <form method="post" action="/main">
                 <label id="username">Email:</label>
                 <input type="text" id="username" name="username"/> 
 
