@@ -15,6 +15,15 @@ app.use(Express.static(path.join(__dirname, 'static')))
 const port = process.env.PORT || 3000
 const env = process.env.NODE_ENV || 'production'
 
+var firebase_config = {
+    apiKey: "AIzaSyAp9WiJPvArikLgXJQmJg5Kn7OJ2hoDv60",
+    authDomain: "userinfo-7f8f9.firebaseapp.com",
+    databaseURL: "https://userinfo-7f8f9.firebaseio.com",
+    projectId: "userinfo-7f8f9",
+    storageBucket: "userinfo-7f8f9.appspot.com",
+    messagingSenderId: "914637440469"
+}
+
 app.post('/signup/:userId', (req, res) => {
     // 1. Send Request to Authentication Server
     // 2. After being authenticated, ask user for additional user info
@@ -40,7 +49,9 @@ app.get('/settings/*', (req, res) => {
 //     where: null
 // }
 app.get('/', (req, res) => {
-    const initialStates = null
+    const initialStates = {
+        firebase_config: firebase_config
+    }
 
     const html = ReactServerDOM.renderToString(<App user={initialStates} />)
 

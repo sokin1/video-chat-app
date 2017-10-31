@@ -12,7 +12,7 @@ export default class App extends React.Component {
         super(props)
 
         this.state = {
-            user: this.props.user
+            firebase_config: this.props.initialState.firebase_config
         }
     }
 
@@ -20,8 +20,8 @@ export default class App extends React.Component {
         console.log(this.state.user)
         return(
             <div>
-                <Header user={this.state.user}/>
-                <Main user={this.state.user}/>
+                <Header user={this.state.user} firebase_config={this.state.firebase_config}/>
+                <Main user={this.state.user} firebase_config={this.state.firebase_config}/>
                 <Footer/>
             </div>
         )
