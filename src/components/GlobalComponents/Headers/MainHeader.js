@@ -5,7 +5,7 @@ export default class MainHeader extends React.Component {
         super(props)
 
         this.state = {
-            user: this.props.user
+            user: this.props.UserInfo
         }
     }
 

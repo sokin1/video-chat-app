@@ -11,17 +11,14 @@ export default class App extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            firebase_config: this.props.initialState.firebase_config
-        }
+        this.state = props.initialState
     }
 
     render() {
-        console.log(this.state.user)
         return(
             <div>
-                <Header user={this.state.user} firebase_config={this.state.firebase_config}/>
-                <Main user={this.state.user} firebase_config={this.state.firebase_config}/>
+                <Header State = {this.state} />
+                <Main State = {this.state} />
                 <Footer/>
             </div>
         )
