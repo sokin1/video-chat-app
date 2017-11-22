@@ -13,15 +13,17 @@ export default class Main extends React.Component {
     }
 
     render() {
-        if(this.props.user == null) {
+        if(this.props.current == null) {
             return <SignUpMain/>
-        } else if(this.props.user.where === 'GROUP_SETTINGS') {
+        } else if(this.props.current === 'SIGN_UP_PHASE2') {
+            return <SignUpMain_Phase2 user={this.props.user}/>
+        } else if(this.props.current === 'GROUP_SETTINGS') {
             return <GroupInfoMain user={this.props.user}/>
-        } else if(this.props.user.where === 'SETTINGS') {
+        } else if(this.props.current === 'SETTINGS') {
             return <SettingMain user={this.props.user}/>
-        } else if(this.props.user.where === 'USER_SETTINGS') {
+        } else if(this.props.current === 'USER_SETTINGS') {
             return <UserInfoMain user={this.props.user}/>
-        } else if(this.props.user.where === 'MAIN') {
+        } else if(this.props.current === 'MAIN') {
             return <LoginMain user={this.props.user}/>
         } else {
             return <PageNotFound />
