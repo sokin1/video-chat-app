@@ -1,10 +1,7 @@
 import React from 'react'
 
 import SignUpMain from './SignUpMain'
-import GroupInfoMain from './GroupInfoMain'
-import SettingMain from './SettingMain'
-import UserInfoMain from './UserInfoMain'
-import LoginMain from './LoginMain'
+import SignUpPhase1 from './SignUpPhase1'
 import PageNotFound from './PageNotFound'
 
 export default class Main extends React.Component {

@@ -1,16 +1,22 @@
 import path from 'path'
 import Express from 'express'
+import Session from 'express-session'
 import React from 'react'
 import ReactServerDOM from 'react-dom/server'
+import Crypto from './Crypto'
+
+import net from 'net'
+import md5 from 'md5'
 
 import template from './template'
 
-const app = new Express()
+const express = new Express()
 
 import App from './components/App'
 
-app.set('views', path.join(__dirname, 'static'))
-app.use(Express.static(path.join(__dirname, 'static')))
+express.set('views', path.join(__dirname, 'static'))
+express.use(Express.static(path.join(__dirname, 'static')))
+express.use(Session({secret: 'secret'}))
 
 const port = process.env.PORT || 3000
 const env = process.env.NODE_ENV || 'production'
@@ -77,21 +83,14 @@ app.post('/main', (req, res) => {
     res.send(rendered_page)
 })
 
-app.get('/settings/*', (req, res) => {
+express.get('/settings/*', (req, res) => {
 
 })
 
-// {
-//     username: null,
-//     last_login_time: null,
-//     group: {
-//         groupname: null
-//     },
-//     data: null,
-//     where: null
-// }
-app.get('/', (req, res) => {
-    const initialStates = null
+var sess
+
+express.get('/', (req, res) => {
+    const initialStates = {}
 
     const html = ReactServerDOM.renderToString(<App state={initialStates} />)
 
@@ -104,7 +103,7 @@ app.get('/', (req, res) => {
     res.send(rendered_page)
 })
 
-app.listen(port, function(err) {
+express.listen(port, function(err) {
     if(err) return console.error(err)
 
     console.info(`Server running on http://localhost:${port} [${env}]`)

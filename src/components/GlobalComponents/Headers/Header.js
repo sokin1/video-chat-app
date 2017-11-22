@@ -2,6 +2,7 @@ import React from 'react'
 
 import LoginHeader from './LoginHeader'
 import MainHeader from './MainHeader'
+import EmptyHeader from './EmptyHeader'
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -9,13 +10,17 @@ export default class Header extends React.Component {
     }
 
     render() {
-        if(this.props.user == null) {
+        if(this.props.State.Action == null) {
             return(
-                <LoginHeader/>
+                <LoginHeader />
+            )
+        } else if(this.props.State.Action === 'SIGN_UP_P1') {
+            return(
+                <EmptyHeader />
             )
         } else {
             return(
-                <MainHeader user={this.props.user}/>
+                <MainHeader UserInfo={this.props.State.UserInfo} />
             )
         }
     }
