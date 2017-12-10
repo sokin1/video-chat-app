@@ -10,11 +10,11 @@ export default class Header extends React.Component {
     }
 
     render() {
-        if(this.props.State.Action == null) {
+        if(this.props.state.current === 'MAIN') {
             return(
                 <LoginHeader />
             )
-        } else if(this.props.State.Action === 'SIGN_UP_P1') {
+        } else if(this.props.state.current === 'SIGN_UP_P1') {
             return(
                 <EmptyHeader />
             )

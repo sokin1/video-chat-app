@@ -12,15 +12,15 @@ export default class App extends React.Component {
         super(props)
 
         this.state = {
-            state: this.props.state
+            current: this.props.state.current
         }
     }
 
     render() {
         return(
             <div>
-                <Header state={this.state.user}/>
-                <Main state={this.state.user}/>
+                <Header state={this.state}/>
+                <Main state={this.state}/>
                 <Footer/>
             </div>
         )

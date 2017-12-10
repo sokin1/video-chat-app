@@ -7,7 +7,7 @@ export default (render_params) => {
             </head>
             <body>
                 <div id="root">${render_params.body}</div>
-                <script>window.__initial_states__=${JSON.stringify(render_params.initialStates)}</script>
+                <script>window.__initial_states__=${JSON.stringify(render_params.state)}</script>
                 <script src="/static/client.bundle.js"></script>
             </body>
         </html>
