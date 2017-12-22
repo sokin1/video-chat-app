@@ -11,14 +11,16 @@ export default class App extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = props.initialState
+        this.state = {
+            current: this.props.state.current
+        }
     }
 
     render() {
         return(
             <div>
-                <Header State = {this.state} />
-                <Main State = {this.state} />
+                <Header state={this.state}/>
+                <Main state={this.state}/>
                 <Footer/>
             </div>
         )
