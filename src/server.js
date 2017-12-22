@@ -75,6 +75,10 @@ express.post('/signup', (req, res) => {
     })
 })
 
+express.get('/signup', (req, res) => {
+    console.log(req.query.uid)
+})
+
 express.post('/main', (req, res) => {
     
 })
